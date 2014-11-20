@@ -61,9 +61,11 @@ mu = mean();
 
 ## Notes
 
-1. 	The use case for this module differs from the conventional [vector](https://github.com/compute-io/incrmmean) implementation and the [stream](https://github.com/flow-io/) implementation. Namely, this module decouples the act of updating the moving mean from the act of consuming the moving mean.
 1. 	If values have not yet been provided to `mmean`, `mmean` returns `null`.
 1. 	The first `W-1` returned means will have less statistical support than subsequent moving means, as `W` values are needed to fill the window buffer. Until the window is full, the mean returned equals the vanilla [arithmetic mean](https://github.com/compute-io/mean).
+
+The use case for this module differs from the conventional [vector](https://github.com/compute-io/incrmmean) implementation and the [stream](https://github.com/flow-io/) implementation. Namely, this module decouples the act of updating the moving mean from the act of consuming the moving mean.
+
 
 
 ## Examples
