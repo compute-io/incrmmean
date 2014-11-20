@@ -32,7 +32,7 @@ var mmean = incrmmean( 3 );
 
 #### mmean( [value] )
 
-If provided a `value`, the method updates and returns the mean of the current window. If not provided a `value`, the method returns the mean of the current window.
+If provided a `value`, the method updates and returns the mean of the current window. If not provided a `value`, the method returns the current mean.
 
 ``` javascript
 var mu;
