@@ -22,9 +22,9 @@ To use the module,
 var incrmmean = require( 'compute-incrmmean' );
 ```
 
-#### incrmmean( W )
+#### incrmmean( window )
 
-Returns an initialized method to compute a moving arithmetic mean incrementally. `W` sets the window size, i.e., the number of values over which to compute a moving mean.
+Returns an initialized method to compute a moving arithmetic mean incrementally. `window` sets the window size, i.e., the number of values over which to compute a moving mean.
 
 ``` javascript
 var mmean = incrmmean( 3 );
