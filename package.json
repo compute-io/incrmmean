@@ -25,12 +25,25 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "statistics",
+    "stats",
+    "mathematics",
+    "math",
+    "average",
+    "avg",
+    "mean",
+    "arithmetic mean",
+    "moving mean",
+    "moving average",
+    "sliding window"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/incrmmean/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-integer": "^1.0.2"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",

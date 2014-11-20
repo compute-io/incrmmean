@@ -19,18 +19,68 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var foo = require( 'compute-incrmmean' );
+var incrmmean = require( 'compute-incrmmean' );
 ```
 
-#### foo( arr )
+#### incrmmean( W )
 
-What does this function do?
+Returns an initialized method to compute a moving arithmetic mean incrementally. `W` sets the window size, i.e., the number of values over which to compute a moving mean.
+
+``` javascript
+var mmean = incrmmean( 3 );
+```
+
+#### mmean( [value] )
+
+If provided a `value`, the method updates and returns the updated moving mean. If not provided a `value`, the method returns the current moving mean.
+
+``` javascript
+var mu;
+
+// Filling window...
+mu = mmean( 2 );
+// mean is 2
+
+mmean( 3 );
+// mean is 2.5
+
+mmean( 2 );
+// mean is 2.33...
+
+// Window starts sliding...
+mmean( -2 );
+// mean is 1
+
+mmean( 9 );
+// mean is 3
+
+mu = mean();
+// returns 3
+```
+
+
+## Notes
+
+1. 	The use case for this module differs from the conventional [vector](https://github.com/compute-io/incrmmean) implementation and the [stream](https://github.com/flow-io/) implementation. Namely, this module decouples the act of updating the moving mean from the act of consuming the moving mean.
+1. 	If values have not yet been provided to `mmean`, `mmean` returns `null`.
+1. 	The first `W-1` returned means will have less statistical support than subsequent moving means, as `W` values are needed to fill the window buffer. Until the window is full, the mean returned equals the vanilla [arithmetic mean](https://github.com/compute-io/mean).
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'compute-incrmmean' );
+var incrmmean = require( 'compute-incrmmean' );
+
+// Initialize a method to calculate the moving mean incrementally:
+var mmean = incrmmean( 5 );
+
+// Simulate some data...
+for ( var i = 0; i < 1000; i++ ) {
+	mu = mmean( Math.random()*100 );
+	console.log( mu );
+}
+mu = mmean();
+console.log( mu );
 ```
 
 To run the example code from the top-level application directory,
@@ -38,6 +88,10 @@ To run the example code from the top-level application directory,
 ``` bash
 $ node ./examples/index.js
 ```
+
+
+
+
 
 
 ## Tests
