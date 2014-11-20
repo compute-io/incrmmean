@@ -54,7 +54,7 @@ mmean( -2 );
 mmean( 9 );
 // mean is 3
 
-mu = mean();
+mu = mmean();
 // returns 3
 ```
 
