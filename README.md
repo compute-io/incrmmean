@@ -64,7 +64,7 @@ mu = mmean();
 1. 	If values have not yet been provided to `mmean`, `mmean` returns `null`.
 1. 	The first `W-1` returned means will have less statistical support than subsequent moving means, as `W` values are needed to fill the window buffer. Until the window is full, the mean returned equals the [arithmetic mean](https://github.com/compute-io/mean) of all values provided thus far.
 
-The use case for this module differs from the conventional [vector](https://github.com/compute-io/incrmmean) implementation and the [stream](https://github.com/flow-io/) implementation. Namely, this module decouples the act of updating the moving mean from the act of consuming the moving mean.
+The use case for this module differs from the conventional [vector](https://github.com/compute-io/mmean) implementation and the [stream](https://github.com/flow-io/) implementation. Namely, this module decouples the act of updating the moving mean from the act of consuming the moving mean.
 
 
 
@@ -74,7 +74,8 @@ The use case for this module differs from the conventional [vector](https://gith
 var incrmmean = require( 'compute-incrmmean' );
 
 // Initialize a method to calculate the moving mean incrementally:
-var mmean = incrmmean( 5 );
+var mmean = incrmmean( 5 ),
+	mu;
 
 // Simulate some data...
 for ( var i = 0; i < 1000; i++ ) {
@@ -100,7 +101,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
