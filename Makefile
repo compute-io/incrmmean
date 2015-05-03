@@ -114,7 +114,6 @@ lint-jshint: node_modules
 		./
 
 
-
 # NODE #
 
 # Installing node_modules:
@@ -132,7 +131,6 @@ clean-node:
 
 
 # CLEAN #
-
 .PHONY: clean
 
 clean:
