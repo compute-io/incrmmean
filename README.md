@@ -93,8 +93,6 @@ $ node ./examples/index.js
 
 
 
-
-
 ## Tests
 
 ### Unit
@@ -130,7 +128,7 @@ $ make view-cov
 
 ## Copyright
 
-Copyright &copy; 2014-2015. Athan Reines.
+Copyright &copy; 2014-2015. The Compute.io Authors.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-incrmmean.svg
